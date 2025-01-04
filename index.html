@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="uz">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Shaxsiy Veb Sahifa</title>
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+	</head>
+	   <style>
+			/* umumiy sozlamalar */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Roboto', sans-serif;
+				background-color: #f0f0f0;
+				color: #333;
+			}
+
+			/* Nav Bar */
+			nav {
+				background-color: #333;
+				padding: 20px 0;
+			}
+
+			nav .container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			nav .logo {
+				color: #fff;
+				font-size: 1.8rem;
+				font-weight: 700;
+			}
+
+			nav .nav-links {
+				list-style: none;
+				display: flex;
+			}
+
+			nav .nav-links li {
+				margin: 0 15px;
+			}
+
+			nav .nav-links a {
+				color: #fff;
+				text-decoration: none;
+				font-size: 1.1rem;
+				font-weight: 600;
+			}
+
+			nav .nav-links a:hover {
+				color: #ff6347;
+			}
+
+			/* Hero Section */
+			#hero {
+				background-color: #333;
+				color: white;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				background-image: url('https://source.unsplash.com/random');
+				background-size: cover;
+				background-position: center;
+			}
+
+			#hero .hero-content h1 {
+				font-size: 3rem;
+				margin-bottom: 20px;
+			}
+
+			#hero .hero-content p {
+				font-size: 1.5rem;
+				margin-bottom: 30px;
+			}
+
+			#hero .btn {
+				background-color: #ff6347;
+				color: white;
+				padding: 10px 20px;
+				font-size: 1.2rem;
+				border: none;
+				border-radius: 5px;
+				text-decoration: none;
+			}
+
+			#hero .btn:hover {
+				background-color: #e5533e;
+			}
+
+			/* About Section */
+			#about {
+				background-color: #fff;
+				padding: 60px 0;
+				text-align: center;
+			}
+
+			#about h2 {
+				font-size: 2.5rem;
+				margin-bottom: 20px;
+			}
+
+			#about p {
+				font-size: 1.2rem;
+				line-height: 1.8;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			/* Skills Section */
+			#skills {
+				background-color: #f7f7f7;
+				padding: 60px 0;
+				text-align: center;
+			}
+
+			#skills h2 {
+				font-size: 2.5rem;
+				margin-bottom: 30px;
+			}
+
+			.skills-list {
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: wrap;
+			}
+
+			.skill {
+				width: 22%;
+				margin: 20px;
+				text-align: center;
+			}
+
+			.skill h3 {
+				font-size: 1.5rem;
+				margin-bottom: 10px;
+			}
+
+			.progress-bar {
+				width: 100%;
+				background-color: #ddd;
+				height: 10px;
+				border-radius: 5px;
+			}
+
+			.progress {
+				height: 100%;
+				border-radius: 5px;
+			}
+
+			.html { width: 90%; background-color: #ff6347; }
+			.css { width: 80%; background-color: #4caf50; }
+			.js { width: 70%; background-color: #f1c40f; }
+			.responsive { width: 85%; background-color: #3498db; }
+
+			/* Contact Section */
+			#contact {
+				background-color: #fff;
+				padding: 60px 0;
+				text-align: center;
+			}
+
+			#contact h2 {
+				font-size: 2.5rem;
+				margin-bottom: 30px;
+			}
+
+			form {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+
+			form input, form textarea {
+				width: 80%;
+				padding: 10px;
+				margin: 10px 0;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+			}
+
+			form .btn {
+				background-color: #ff6347;
+				color: white;
+				padding: 12px 25px;
+				font-size: 1.2rem;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			form .btn:hover {
+				background-color: #e5533e;
+			}
+
+			/* Footer */
+			footer {
+				background-color: #333;
+				color: white;
+				text-align: center;
+				padding: 20px 0;
+			}
+
+			footer p {
+				font-size: 1rem;
+			}
+					/* Mobil qurilmalar uchun maxsus dizayn */
+			@media (max-width: 768px) {
+				nav .container {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+
+				nav .nav-links {
+					flex-direction: column;
+					width: 100%;
+					display: none; /* Defaultda yashirilgan */
+				}
+
+				nav .nav-links.active {
+					display: flex; /* Aktiv bo'lganda ko'rsatiladi */
+				}
+
+				nav .nav-links li {
+					margin: 10px 0;
+				}
+
+				.menu-toggle {
+					display: block;
+					cursor: pointer;
+				}
+
+				.menu-toggle .bar {
+					display: block;
+					width: 25px;
+					height: 3px;
+					background-color: #fff;
+					margin: 5px auto;
+				}
+
+				#hero {
+					height: 70vh; /* Kichikroq bo'lishi uchun */
+					background-size: cover;
+					padding: 0 20px;
+				}
+
+				#hero .hero-content h1 {
+					font-size: 2rem; /* Matnni kichraytirish */
+				}
+
+				#hero .hero-content p {
+					font-size: 1rem;
+				}
+
+				#about, #skills, #contact {
+					padding: 40px 20px;
+				}
+
+				.skills-list {
+					flex-direction: column;
+					align-items: center;
+				}
+
+				.skill {
+					width: 90%; /* Ekranga moslashtirish */
+					margin: 10px 0;
+				}
+
+				form input, form textarea {
+					width: 100%; /* Kenglikni butun ekran qilish */
+				}
+			} 
+		</style>
+	<body>
+		<!-- Navigation -->
+		<nav>
+			<div class="container">
+				<div class="logo">Muhammadsaid</div>
+				<ul class="nav-links">
+					<li><a href="#about">Haqqimda</a></li>
+					<li><a href="#skills">Ko'nikmalar</a></li>
+					<li><a href="#contact">Aloqa</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section id="hero">
+			<div class="hero-content">
+				<h1>Salom, men Muhammadsaid</zh1>
+				<p>Web Dasturchi va Dizayner</p>
+				<a href="#contact" class="btn">Aloqa</a>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section id="about">
+			<div class="container">
+				<h2>Haqqimda</h2>
+				<p>Men web dizayner va dasturchiman. HTML, CSS, JavaScript va boshqa zamonaviy texnologiyalardan foydalanib, samarali va chiroyli veb-sahifalar yarataman.</p>
+			</div>
+		</section>
+
+		<!-- Skills Section -->
+		<section id="skills">
+			<div class="container">
+				<h2>Ko'nikmalarim</h2>
+				<div class="skills-list">
+					<div class="skill">
+						<h3>HTML5</h3>
+						<div class="progress-bar">
+							<div class="progress html"></div>
+						</div>
+					</div>
+					<div class="skill">
+						<h3>CSS3</h3>
+						<div class="progress-bar">
+							<div class="progress css"></div>
+						</div>
+					</div>
+					<div class="skill">
+						<h3>JavaScript</h3>
+						<div class="progress-bar">
+							<div class="progress js"></div>
+						</div>
+					</div>
+					<div class="skill">
+						<h3>Responsive Design</h3>
+						<div class="progress-bar">
+							<div class="progress responsive"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact">
+			<div class="container">
+				<h2>Aloqa</h2>
+				<form action="#">
+					<input type="text" name="name" placeholder="Ismingiz" required>
+					<input type="email" name="email" placeholder="Email manzilingiz" required>
+					<textarea name="message" rows="4" placeholder="Xabaringiz..." required></textarea>
+					<button type="submit" class="btn">Yuborish</button>
+				</form>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<p>&copy; 2024 Muhammadsaid. Barcha huquqlar himoyalangan.</p>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+		<div class="menu-toggle" id="mobile-menu">
+		<span class="bar"></span>
+		<span class="bar"></span>
+		<span class="bar"></span>
+		</div>
+
+
+	</body>
+</html>
